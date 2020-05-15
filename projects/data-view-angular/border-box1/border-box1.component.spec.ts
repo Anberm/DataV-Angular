@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataViewAngularComponent } from './data-view-angular.component';
+import { BorderBox1Component } from './border-box1.component';
 
-describe('DataViewAngularComponent', () => {
-  let component: DataViewAngularComponent;
-  let fixture: ComponentFixture<DataViewAngularComponent>;
+describe('BorderBox1Component', () => {
+  let component: BorderBox1Component;
+  let fixture: ComponentFixture<BorderBox1Component>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataViewAngularComponent ]
+      declarations: [ BorderBox1Component ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DataViewAngularComponent);
+    fixture = TestBed.createComponent(BorderBox1Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
