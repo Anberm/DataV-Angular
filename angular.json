@@ -123,6 +123,50 @@
           }
         }
       }
-    }},
-  "defaultProject": "data-view-angular-site"
+    },
+    "data-view-angular": {
+      "projectType": "library",
+      "root": "projects/data-view-angular",
+      "sourceRoot": "projects/data-view-angular/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/data-view-angular/tsconfig.lib.json",
+            "project": "projects/data-view-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/data-view-angular/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/data-view-angular/src/test.ts",
+            "tsConfig": "projects/data-view-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/data-view-angular/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/data-view-angular/tsconfig.lib.json",
+              "projects/data-view-angular/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "data-view-angular-site",
+  "cli": {
+    "analytics": "acb79130-57cb-48a3-aba1-0103d130b2f0"
+  }
 }
