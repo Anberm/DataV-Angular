@@ -130,6 +130,13 @@
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-9.1.7.tgz#09bf7c84c234d8b6ecaa101024a3b3e69ab198cd"
   integrity sha512-1wW8ndGMLDuE2LpTN2RNRz1Dt7JgVBeVmOPMgzoA7g1uuvm+jESTrGG7W3BzLzG0BE2TeXt0fY90o4iU+S2Rmg==
 
+"@angular/cdk@^9.2.2":
+  version "9.2.3"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-9.2.3.tgz#e0f7d4eaeca429346e15bd258966fbb5a5f4ed0b"
+  integrity sha512-tQr/yt8GNGsZ/DTT+PMq7XdRmL56hwVCyf8F12JQAawutSLfTfMb+S1lpN7L/0Pb/L5JBuCfG2HmXK7vHo02gw==
+  optionalDependencies:
+    parse5 "^5.0.0"
+
 "@angular/cli@~9.1.5":
   version "9.1.6"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-9.1.6.tgz#9622745d3fdf73b3045048e7df6c44f5aa8e97f5"
@@ -6950,6 +6957,11 @@ parse5@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
   integrity sha512-VrZ7eOd3T1Fk4XWNXMgiGBK/z0MG48BWG2uQNU4I72fkQuKUTZpl+u9k+CxEG0twMVzSmXEEz12z5Fnw1jIQFA==
+
+parse5@^5.0.0:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/parse5/-/parse5-5.1.1.tgz#f68e4e5ba1852ac2cadc00f4555fff6c2abb6178"
+  integrity sha512-ugq4DFI0Ptb+WWjAdOK16+u/nHfiIrcE+sh8kZMaM0WllQKLI9rOUq6c2b7cwPkXdzfQESqvoqK6ug7U/Yyzug==
 
 parseqs@0.0.5:
   version "0.0.5"

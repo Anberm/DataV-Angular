@@ -1,0 +1,14 @@
+// Configuration for IDEs only.
+
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "paths": {
+      "data-view-angular": ["./data-view-angular.module"],
+      "data-view-angular/*": ["./*"]
+    }
+  },
+  "include": ["./**/*.ts"]
+}
