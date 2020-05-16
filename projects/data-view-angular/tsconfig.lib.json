@@ -16,6 +16,7 @@
     "strictMetadataEmit": true,
     "enableResourceInlining": true
   },
+  "files": ["./data-view-angular.module.ts"],
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"

@@ -1,14 +1,19 @@
 import { coerceElement } from '@angular/cdk/coercion';
 import { Directive, OnChanges, AfterViewInit, Input, ElementRef, Renderer2, Optional, Inject } from '@angular/core';
+import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
+import { BooleanInput } from 'data-view-angular/core/types';
+import { InputBoolean } from 'data-view-angular/core/util';
+
+const DISABLED_CLASSNAME = 'dv-animate-disabled';
 
 @Directive({
   selector: '[dvNoAnimation]',
   exportAs: 'dvNoAnimation'
 })
 export class DvNoAnimationDirective implements OnChanges, AfterViewInit {
-  static ngAcceptInputType_nzNoAnimation: BooleanInput;
+  static ngAcceptInputType_dvNoAnimation: BooleanInput;
 
-  @Input() @InputBoolean() nzNoAnimation: boolean = false;
+  @Input() @InputBoolean() dvNoAnimation: boolean = false;
 
   constructor(
     private element: ElementRef,
@@ -29,7 +34,7 @@ export class DvNoAnimationDirective implements OnChanges, AfterViewInit {
     if (!element) {
       return;
     }
-    if (this.nzNoAnimation || this.animationType === 'NoopAnimations') {
+    if (this.dvNoAnimation || this.animationType === 'NoopAnimations') {
       this.renderer.addClass(element, DISABLED_CLASSNAME);
     } else {
       this.renderer.removeClass(element, DISABLED_CLASSNAME);
