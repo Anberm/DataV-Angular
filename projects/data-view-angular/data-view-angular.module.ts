@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { warnDeprecation } from 'data-view-angular/core/logger';
-import { NzNoAnimationModule } from 'data-view-angular/core/no-animation';
+import { DvNoAnimationModule } from 'data-view-angular/core/no-animation';
 
 
 export * from 'data-view-angular/core/animation';
