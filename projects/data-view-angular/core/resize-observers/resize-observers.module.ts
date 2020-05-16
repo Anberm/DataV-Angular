@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { NzResizeObserverFactory } from './resize-observers.service';
+import { DvResizeObserverFactory } from './resize-observers.service';
 
 @NgModule({
-  providers: [NzResizeObserverFactory]
+  providers: [DvResizeObserverFactory]
 })
-export class NzResizeObserversModule {}
+export class DvResizeObserversModule {}
