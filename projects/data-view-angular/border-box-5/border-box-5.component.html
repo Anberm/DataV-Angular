@@ -1,0 +1,15 @@
+<svg class="dv-border-svg-container" [ngClass]="{'dv-reverse':dvReverse}" [style.width.px]="width"
+  [style.height.px]="height">
+  <polygon [attr.fill]="dvBackgroundColor" [attr.points]="point1" />
+
+  <polyline class="dv-bb5-line-1" [attr.stroke]="mergedColor[0]" [attr.points]="point2" />
+  <polyline class="dv-bb5-line-2" [attr.stroke]="mergedColor[1]" [attr.points]="point3" />
+  <polyline class="dv-bb5-line-3" [attr.stroke]="mergedColor[1]" [attr.points]="point4" />
+  <polyline class="dv-bb5-line-4" [attr.stroke]="mergedColor[1]" [attr.points]="point5" />
+  <polyline class="dv-bb5-line-5" [attr.stroke]="mergedColor[1]" [attr.points]="point6" />
+  <polyline class="dv-bb5-line-6" [attr.stroke]="mergedColor[1]" [attr.points]="point7" />
+</svg>
+
+<div class="border-box-content">
+  <ng-content></ng-content>
+</div>

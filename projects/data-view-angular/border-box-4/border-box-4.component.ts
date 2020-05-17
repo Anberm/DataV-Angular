@@ -29,7 +29,7 @@ import { InputBoolean } from 'data-view-angular/core/util';
 })
 export class BorderBox4Component implements OnDestroy, AfterViewInit {
   private destroy$ = new Subject<void>();
-  defaultColor: [string, string] = ['#fff', 'rgba(255, 255, 255, 0.6)'];
+  defaultColor: [string, string] = ['red', 'rgba(0,0,255,0.8)'];
   mergedColor = Object.assign([], this.defaultColor);
   width = 0;
   height = 0;

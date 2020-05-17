@@ -11,24 +11,25 @@ import {
   ChangeDetectorRef
 } from '@angular/core';
 import { Subject } from 'rxjs';
+import { InputBoolean } from 'data-view-angular';
 import { DvResizeObserver } from 'data-view-angular/core/resize-observers';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'dv-border-box-3',
-  exportAs: 'dvBorderBox3',
+  selector: 'dv-border-box-5',
+  exportAs: 'dvBorderBox5',
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  templateUrl: './border-box-3.component.html',
-  styleUrls: ['./border-box-3.component.less'],
+  templateUrl: './border-box-5.component.html',
+  styleUrls: ['./border-box-5.component.less'],
   host: {
-    '[class.dv-border-box-3]': `true`
+    '[class.dv-border-box-5]': `true`
   }
 })
-export class BorderBox3Component implements OnDestroy, AfterViewInit {
+export class BorderBox5Component implements OnDestroy, AfterViewInit {
   private destroy$ = new Subject<void>();
-  defaultColor: [string, string] = ['#2862b7', '#2862b7'];
+  defaultColor: [string, string] = ['rgba(255, 255, 255, 0.35)', 'rgba(255, 255, 255, 0.20)'];
   mergedColor = Object.assign([], this.defaultColor);
   width = 0;
   height = 0;
@@ -37,6 +38,10 @@ export class BorderBox3Component implements OnDestroy, AfterViewInit {
   point3 = '';
   point4 = '';
   point5 = '';
+  point6 = '';
+  point7 = '';
+
+  @Input() @InputBoolean() dvReverse: boolean = false;
 
   @Input() dvBackgroundColor: string = 'transparent';
 
@@ -53,11 +58,17 @@ export class BorderBox3Component implements OnDestroy, AfterViewInit {
   ) {}
 
   updatePoints() {
-    this.point1 = `23, 23 ${this.width - 24}, 23 ${this.width - 24}, ${this.height - 24} 23, ${this.height - 24}`;
-    this.point2 = `4, 4 ${this.width - 22} ,4 ${this.width - 22}, ${this.height - 22} 4, ${this.height - 22} 4, 4`;
-    this.point3 = `10, 10 ${this.width - 16}, 10 ${this.width - 16}, ${this.height - 16} 10, ${this.height - 16} 10, 10`;
-    this.point4 = `16, 16 ${this.width - 10}, 16 ${this.width - 10}, ${this.height - 10} 16, ${this.height - 10} 16, 16`;
-    this.point5 = `22, 22 ${this.width - 4}, 22 ${this.width - 4}, ${this.height - 4} 22, ${this.height - 4} 22, 22`;
+    this.point1 = `10, 22 ${this.width - 22}, 22 ${this.width - 22}, ${this.height - 86} ${this.width - 84}, ${this.height - 24} 10, ${
+      this.height - 24
+    }`;
+    this.point2 = `8, 5 ${this.width - 5}, 5 ${this.width - 5}, ${this.height - 100}
+    ${this.width - 100}, ${this.height - 5} 8, ${this.height - 5} 8, 5`;
+    this.point3 = `3, 5 ${this.width - 20}, 5 ${this.width - 20}, ${this.height - 60}
+    ${this.width - 74}, ${this.height - 5} 3, ${this.height - 5} 3, 5`;
+    this.point4 = `50, 13 ${this.width - 35}, 13`;
+    this.point5 = `15, 20 ${this.width - 35}, 20`;
+    this.point6 = `15, ${this.height - 20} ${this.width - 110}, ${this.height - 20}`;
+    this.point7 = `15, ${this.height - 13} ${this.width - 110}, ${this.height - 13}`;
   }
 
   getRectHW() {
