@@ -1,0 +1,12 @@
+<svg class="dv-border-svg-container" [style.width.px]="width" [style.height.px]="height">
+  <polygon [attr.fill]="dvBackgroundColor" [attr.points]="point1" />
+
+  <polyline class="dv-bb3-line1" [attr.stroke]="mergedColor[0]" [attr.points]="point2" />
+  <polyline class="dv-bb3-line2" [attr.stroke]="mergedColor[1]" [attr.points]="point3" />
+  <polyline class="dv-bb3-line2" [attr.stroke]="mergedColor[1]" [attr.points]="point4" />
+  <polyline class="dv-bb3-line2" [attr.stroke]="mergedColor[1]" [attr.points]="point5" />
+</svg>
+
+<div class="border-box-content">
+  <ng-content></ng-content>
+</div>
