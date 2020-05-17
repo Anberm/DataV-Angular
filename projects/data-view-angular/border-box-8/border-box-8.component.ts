@@ -11,7 +11,7 @@ import {
   ChangeDetectorRef
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { InputBoolean } from 'data-view-angular';
+import { InputBoolean } from 'data-view-angular/core/util';
 import { DvResizeObserver } from 'data-view-angular/core/resize-observers';
 import { takeUntil } from 'rxjs/operators';
 import { InputNumber } from 'data-view-angular/core/util';
@@ -42,9 +42,13 @@ export class BorderBox8Component implements OnDestroy, AfterViewInit {
   mask = `border-box-8-mask-${this.timestamp}`;
   fill1 = `url(#${this.gradient})`;
   hrefTpl = `#${this.path}`;
-  maskTpl = `#${this.path}`;
-  fromTpl = `0, ${length}`;
-  toTpl = `${length}, 0`;
+  maskTpl = `url(#${this.mask})`;
+
+  getLength() {
+    return (this.width + this.height - 5) * 2;
+  }
+  fromTpl = `0, ${this.getLength()}`;
+  toTpl = `${this.getLength()}, 0`;
 
   @Input() @InputBoolean() dvReverse: boolean = false;
 

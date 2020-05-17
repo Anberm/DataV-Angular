@@ -8,10 +8,11 @@ import {
   Input,
   ElementRef,
   NgZone,
-  ChangeDetectorRef
+  ChangeDetectorRef,
+  Renderer2
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { InputBoolean } from 'data-view-angular';
+import { InputBoolean } from 'data-view-angular/core/util';
 import { DvResizeObserver } from 'data-view-angular/core/resize-observers';
 import { takeUntil } from 'rxjs/operators';
 
@@ -24,10 +25,7 @@ import { takeUntil } from 'rxjs/operators';
   templateUrl: './border-box-7.component.html',
   styleUrls: ['./border-box-7.component.less'],
   host: {
-    '[class.dv-border-box-7]': `true`,
-    '[style.box-shadow]': 'inset 0 0 40px mergedColor[0]',
-    '[style.border]': '1px solid mergedColor[0]',
-    '[style.background-color]': 'dvBackgroundColor'
+    '[class.dv-border-box-7]': `true`
   }
 })
 export class BorderBox7Component implements OnDestroy, AfterViewInit {
@@ -53,6 +51,7 @@ export class BorderBox7Component implements OnDestroy, AfterViewInit {
   constructor(
     private elementRef: ElementRef,
     private zone: NgZone,
+    private render: Renderer2,
     private cdr: ChangeDetectorRef,
     private dvResizeObserver: DvResizeObserver
   ) {}
@@ -64,6 +63,9 @@ export class BorderBox7Component implements OnDestroy, AfterViewInit {
     this.point4 = `${this.width - 10}, 0 ${this.width}, 0 ${this.width}, 10`;
     this.point5 = `${this.width - 10}, ${this.height} ${this.width}, ${this.height} ${this.width}, ${this.height - 10}`;
     this.point6 = `0, ${this.height - 10} 0, ${this.height} 10, ${this.height}`;
+    this.render.setStyle(this.elementRef.nativeElement, 'box-shadow', `inset 0 0 40px ${this.mergedColor[0]}`);
+    this.render.setStyle(this.elementRef.nativeElement, 'border', `1px solid ${this.mergedColor[0]}`);
+    this.render.setStyle(this.elementRef.nativeElement, 'background-color', `${this.dvBackgroundColor}`);
   }
 
   getRectHW() {

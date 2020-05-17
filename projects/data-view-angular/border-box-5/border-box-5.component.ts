@@ -11,7 +11,7 @@ import {
   ChangeDetectorRef
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { InputBoolean } from 'data-view-angular';
+import { InputBoolean } from 'data-view-angular/core/util';
 import { DvResizeObserver } from 'data-view-angular/core/resize-observers';
 import { takeUntil } from 'rxjs/operators';
 
