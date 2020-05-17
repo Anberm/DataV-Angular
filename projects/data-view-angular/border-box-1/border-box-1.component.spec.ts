@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BorderBox1Component } from './border-box1.component';
+import { BorderBox1Component } from './border-box-1.component';
 
 describe('BorderBox1Component', () => {
   let component: BorderBox1Component;

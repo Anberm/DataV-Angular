@@ -3,6 +3,8 @@ import { _isNumberValue, coerceBooleanProperty, coerceCssPixelValue } from '@ang
 
 import { FunctionProp, DvSafeAny } from 'data-view-angular/core/types';
 
+import { warn } from 'data-view-angular/core/logger';
+
 export function toBoolean(value: boolean | string): boolean {
   return coerceBooleanProperty(value);
 }

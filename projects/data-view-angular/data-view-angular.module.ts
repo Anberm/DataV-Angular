@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { warnDeprecation } from 'data-view-angular/core/logger';
 import { DvNoAnimationModule } from 'data-view-angular/core/no-animation';
-import { BorderBox1Module } from 'data-view-angular/border-box1';
+import { BorderBox1Module } from 'data-view-angular/border-box-1';
 
 export * from 'data-view-angular/core/animation';
 export * from 'data-view-angular/core/environments';
@@ -11,7 +11,7 @@ export * from 'data-view-angular/core/logger';
 export * from 'data-view-angular/core/no-animation';
 export * from 'data-view-angular/core/types';
 export * from 'data-view-angular/core/util';
-export * from 'data-view-angular/border-box1';
+export * from 'data-view-angular/border-box-1';
 
 @NgModule({
   exports: [BorderBox1Module]

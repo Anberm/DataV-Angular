@@ -8,29 +8,30 @@ import {
   OnDestroy,
   Renderer2,
   ViewEncapsulation,
-  Input
+  Input,
+  OnInit
 } from '@angular/core';
 import { DvResizeObserver } from 'data-view-angular/core/resize-observers';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'dv-border-box1',
+  selector: 'dv-border-box-1',
   exportAs: 'dvBorderBox1',
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  templateUrl: './border-box1.component.svg',
-  styleUrls: ['./border-box1.component.less'],
+  templateUrl: './border-box-1.component.svg',
+  styleUrls: ['./border-box-1.component.less'],
   host: {
     '[class.dv-border-box-1]': `true`
   }
 })
-export class BorderBox1Component implements OnDestroy, AfterViewInit {
+export class BorderBox1Component implements OnInit, OnDestroy, AfterViewInit {
   private destroy$ = new Subject<void>();
   defaultColor: [string, string] = ['#4fd2dd', '#235fa7'];
   mergedColor = Object.assign([], this.defaultColor);
-  borderPosition: ['left-top', 'right-top', 'left-bottom', 'right-bottom'];
+  borderPosition = ['left-top', 'right-top', 'left-bottom', 'right-bottom'];
   width = 0;
   height = 0;
   point1 = '';
@@ -48,6 +49,9 @@ export class BorderBox1Component implements OnDestroy, AfterViewInit {
     private cdr: ChangeDetectorRef,
     private dvResizeObserver: DvResizeObserver
   ) {}
+  ngOnInit(): void {
+ 
+  }
 
   updatePoints() {
     this.point1 = `10, 27 10, ${this.height - 27} 13, ${this.height - 24} 13, ${this.height - 21} 24, ${this.height - 11}
@@ -62,12 +66,34 @@ export class BorderBox1Component implements OnDestroy, AfterViewInit {
     ${this.width - 81}, 10 ${this.width - 85}, 6 85, 6 81, 10 75, 10 73, 8 41, 8 38, 11 24, 11 13, 21 13, 24`;
   }
 
+  borderClassName(item: string) {
+    return `${item} border`;
+  }
+
+  animateValue1() {
+    return `${this.mergedColor[0]};${this.mergedColor[1]};${this.mergedColor[0]}`;
+  }
+  animateValue2() {
+    return `${this.mergedColor[1]};${this.mergedColor[0]};${this.mergedColor[1]}`;
+  }
+  animateValue3() {
+    return `${this.mergedColor[0]};${this.mergedColor[1]};transparent`;
+  }
+
+  getRectHW() {
+    const { width, height } = this.elementRef.nativeElement.getBoundingClientRect();
+    this.width = width;
+    this.height = height;
+    this.updatePoints();
+    this.cdr.markForCheck();
+  }
+
   ngAfterViewInit(): void {
+    this.getRectHW();
     this.dvResizeObserver
       .observe(this.elementRef)
       .pipe(takeUntil(this.destroy$))
       .subscribe(([entry]) => {
-        // console.log('border-box');
         const { width, height } = entry.target.getBoundingClientRect();
         this.zone.run(() => {
           this.width = width;
