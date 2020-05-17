@@ -27,7 +27,7 @@ import { takeUntil } from 'rxjs/operators';
     '[class.dv-border-box-1]': `true`
   }
 })
-export class BorderBox1Component implements OnInit, OnDestroy, AfterViewInit {
+export class BorderBox1Component implements OnDestroy, AfterViewInit {
   private destroy$ = new Subject<void>();
   defaultColor: [string, string] = ['#4fd2dd', '#235fa7'];
   mergedColor = Object.assign([], this.defaultColor);
@@ -49,9 +49,6 @@ export class BorderBox1Component implements OnInit, OnDestroy, AfterViewInit {
     private cdr: ChangeDetectorRef,
     private dvResizeObserver: DvResizeObserver
   ) {}
-  ngOnInit(): void {
- 
-  }
 
   updatePoints() {
     this.point1 = `10, 27 10, ${this.height - 27} 13, ${this.height - 24} 13, ${this.height - 21} 24, ${this.height - 11}
