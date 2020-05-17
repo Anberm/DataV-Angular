@@ -1,2 +1,2 @@
-export { NzResizeObserversModule } from './resize-observers.module';
-export { NzResizeObserver } from './resize-observers.service';
+export { DvResizeObserversModule } from './resize-observers.module';
+export { DvResizeObserver } from './resize-observers.service';
