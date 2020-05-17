@@ -1,0 +1,24 @@
+<svg class="dv-svg-container" [style.width.px]="width" [style.height.px]="height">
+  <polygon [attr.fill]="dvBackgroundColor" [attr.points]="point1" />
+
+  <circle [attr.fill]="mergedColor[1]" cx="5" cy="5" r="2" />
+  <circle [attr.fill]="mergedColor[1]" [attr.cx]="width - 5" cy="5" r="2" />
+  <circle [attr.fill]="mergedColor[1]" [attr.cx]="width - 5" [attr.cy]="height - 5" r="2" />
+  <circle [attr.fill]="mergedColor[1]" cx="5" [attr.cy]="height - 5" r="2" />
+  <polyline [attr.stroke]="mergedColor[0]" [attr.points]="point2" />
+  <polyline [attr.stroke]="mergedColor[0]" [attr.points]="point3" />
+  <polyline [attr.stroke]="mergedColor[0]" [attr.points]="point4" />
+  <polyline [attr.stroke]="mergedColor[0]" [attr.points]="point5" />
+  <polyline [attr.stroke]="mergedColor[0]" points="3, 10, 3, 50" />
+  <polyline [attr.stroke]="mergedColor[0]" points="7, 30 7, 80" />
+  <polyline [attr.stroke]="mergedColor[0]" [attr.points]="point6" />
+  <polyline [attr.stroke]="mergedColor[0]" [attr.points]="point7" />
+  <polyline [attr.stroke]="mergedColor[0]" [attr.points]="point8" />
+  <polyline [attr.stroke]="mergedColor[0]" [attr.points]="point9" />
+  <polyline [attr.stroke]="mergedColor[0]" [attr.points]="point10" />
+  <polyline [attr.stroke]="mergedColor[0]" [attr.points]="point11" />
+</svg>
+
+<div class="border-box-content">
+  <ng-content></ng-content>
+</div>
