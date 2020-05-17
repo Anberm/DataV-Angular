@@ -29,7 +29,7 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class BorderBox6Component implements OnDestroy, AfterViewInit {
   private destroy$ = new Subject<void>();
-  defaultColor: [string, string] = ['rgba(255, 255, 255, 0.35)', 'rgba(255, 255, 255, 0.20)'];
+  defaultColor: [string, string] = ['rgba(255, 255, 255, 0.35)', 'gray'];
   mergedColor = Object.assign([], this.defaultColor);
   width = 0;
   height = 0;
@@ -44,8 +44,6 @@ export class BorderBox6Component implements OnDestroy, AfterViewInit {
   point9 = '';
   point10 = '';
   point11 = '';
-
-  @Input() @InputBoolean() dvReverse: boolean = false;
 
   @Input() dvBackgroundColor: string = 'transparent';
 

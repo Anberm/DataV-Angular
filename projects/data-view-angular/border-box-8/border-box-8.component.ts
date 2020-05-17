@@ -14,34 +14,41 @@ import { Subject } from 'rxjs';
 import { InputBoolean } from 'data-view-angular';
 import { DvResizeObserver } from 'data-view-angular/core/resize-observers';
 import { takeUntil } from 'rxjs/operators';
+import { InputNumber } from 'data-view-angular/core/util';
 
 @Component({
-  selector: 'dv-border-box-7',
-  exportAs: 'dvBorderBox7',
+  selector: 'dv-border-box-8',
+  exportAs: 'dvBorderBox8',
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  templateUrl: './border-box-7.component.html',
-  styleUrls: ['./border-box-7.component.less'],
+  templateUrl: './border-box-8.component.html',
+  styleUrls: ['./border-box-8.component.less'],
   host: {
-    '[class.dv-border-box-7]': `true`,
-    '[style.box-shadow]': 'inset 0 0 40px mergedColor[0]',
-    '[style.border]': '1px solid mergedColor[0]',
-    '[style.background-color]': 'dvBackgroundColor'
+    '[class.dv-border-box-8]': `true`
   }
 })
-export class BorderBox7Component implements OnDestroy, AfterViewInit {
+export class BorderBox8Component implements OnDestroy, AfterViewInit {
   private destroy$ = new Subject<void>();
-  defaultColor: [string, string] = ['rgba(128,128,128,0.3)', 'rgba(128,128,128,0.5)'];
+  defaultColor: [string, string] = ['#235fa7', '#4fd2dd'];
   mergedColor = Object.assign([], this.defaultColor);
   width = 0;
   height = 0;
   point1 = '';
-  point2 = '';
-  point3 = '';
-  point4 = '';
-  point5 = '';
-  point6 = '';
+
+  timestamp = Date.now();
+  path = `border-box-8-path-${this.timestamp}`;
+  gradient = `border-box-8-gradient-${this.timestamp}`;
+  mask = `border-box-8-mask-${this.timestamp}`;
+  fill1 = `url(#${this.gradient})`;
+  hrefTpl = `#${this.path}`;
+  maskTpl = `#${this.path}`;
+  fromTpl = `0, ${length}`;
+  toTpl = `${length}, 0`;
+
+  @Input() @InputBoolean() dvReverse: boolean = false;
+
+  @Input() @InputNumber() dvDur: number = 3;
 
   @Input() dvBackgroundColor: string = 'transparent';
 
@@ -57,13 +64,15 @@ export class BorderBox7Component implements OnDestroy, AfterViewInit {
     private dvResizeObserver: DvResizeObserver
   ) {}
 
+  pathD() {
+    if (this.dvReverse)
+      return `M 2.5, 2.5 L 2.5, ${this.height - 2.5} L ${this.width - 2.5}, ${this.height - 2.5} L ${this.width - 2.5}, 2.5 L 2.5, 2.5`;
+
+    return `M2.5, 2.5 L${this.width - 2.5}, 2.5 L${this.width - 2.5}, ${this.height - 2.5} L2.5, ${this.height - 2.5} L2.5, 2.5`;
+  }
+
   updatePoints() {
-    this.point1 = `${this.width - 25}, 0 ${this.width}, 0 ${this.width}, 25`;
-    this.point2 = `${this.width - 25}, ${this.height} ${this.width}, ${this.height} ${this.width}, ${this.height - 25}`;
-    this.point3 = `0, ${this.height - 25} 0, ${this.height} 25, ${this.height}`;
-    this.point4 = `${this.width - 10}, 0 ${this.width}, 0 ${this.width}, 10`;
-    this.point5 = `${this.width - 10}, ${this.height} ${this.width}, ${this.height} ${this.width}, ${this.height - 10}`;
-    this.point6 = `0, ${this.height - 10} 0, ${this.height} 10, ${this.height}`;
+    this.point1 = `5, 5 ${this.width - 5}, 5 ${this.width - 5} ${this.height - 5} 5, ${this.height - 5}`;
   }
 
   getRectHW() {
